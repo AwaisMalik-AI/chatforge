@@ -6,7 +6,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import actions, analytics, auth, chat, chatbots, knowledge, mcp, prompts
+from app.api.routes import actions, analytics, auth, chat, chatbots, crews, knowledge, mcp, prompts
 from app.core.config import settings
 from app.core.database import init_db
 
@@ -29,7 +29,7 @@ app = FastAPI(
     title="ChatForge",
     description=(
         "Production LLM Chatbot Platform with RAG (multi-format), Streaming, Memory, "
-        "MCP Tools & Action Agents (Jira, email, workflows) with approval gates"
+        "MCP Tools, Action Agents, and a researcher→writer→critic crew with Celery workers"
     ),
     version="0.1.0",
     lifespan=lifespan,
@@ -51,6 +51,7 @@ app.include_router(prompts.router)
 app.include_router(mcp.router)
 app.include_router(analytics.router)
 app.include_router(actions.router)
+app.include_router(crews.router)
 
 
 @app.get("/health")

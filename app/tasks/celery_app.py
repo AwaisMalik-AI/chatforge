@@ -8,7 +8,7 @@ celery_app = Celery(
     "chatforge",
     broker=settings.celery_broker,
     backend=settings.celery_backend,
-    include=["app.tasks.indexing_tasks", "app.tasks.maintenance_tasks", "app.tasks.action_tasks"],
+    include=["app.tasks.indexing_tasks", "app.tasks.maintenance_tasks", "app.tasks.action_tasks", "app.tasks.crew_tasks"],
 )
 
 celery_app.conf.update(
