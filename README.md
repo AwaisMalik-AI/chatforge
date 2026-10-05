@@ -2,7 +2,7 @@
 
 ChatForge is a **backend-first** platform for multi-tenant AI assistants: **retrieval-augmented generation** with **multi-format document ingestion**, **Server-Sent Events (SSE) streaming**, **conversation memory**, **MCP tool servers** (stdio + HTTP), **response evaluation**, **analytics**, and **governed action execution** (Jira, email drafts, document intelligence, tasks, webhooks) with **admin approval gates** for sensitive operations.
 
-**Latest:** Answer crew (`POST /api/crews/answer`) — researcher → writer → critic with optional RAG snippets and a Celery worker (`chatforge.run_answer_crew`).
+**Latest:** Answer crew (`POST /api/crews/answer`) and **hallucination / groundedness eval** (`POST /api/evals/groundedness`).
 
 ---
 

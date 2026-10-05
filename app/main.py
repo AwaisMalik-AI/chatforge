@@ -6,7 +6,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import actions, analytics, auth, chat, chatbots, crews, knowledge, mcp, prompts
+from app.api.routes import actions, analytics, auth, chat, chatbots, crews, evals, knowledge, mcp, prompts
 from app.core.config import settings
 from app.core.database import init_db
 
@@ -52,6 +52,7 @@ app.include_router(mcp.router)
 app.include_router(analytics.router)
 app.include_router(actions.router)
 app.include_router(crews.router)
+app.include_router(evals.router)
 
 
 @app.get("/health")
